@@ -1,0 +1,14 @@
+<h1>Student Dashboard</h1>
+<ul>
+  {% for fee in fees %}
+    <li>
+      <strong>{{ fee.category }}</strong> - Due: {{ fee.amount_due }} | Paid: {{ fee.amount_paid }} | Status: {{ fee.status }}
+      <ul>
+        {% for p in fee.payments %}
+          <li>{{ p.amount }} via {{ p.method }} - {{ p.status }} ({{ p.paid_at }})</li>
+        {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
+</ul>
+
